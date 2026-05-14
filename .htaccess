@@ -1,0 +1,7 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/bcdroovr/public_html/delicias.saborcentral.com"
+PassengerBaseURI "/"
+PassengerNodejs "/home/bcdroovr/nodevenv/public_html/delicias.saborcentral.com/20/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
