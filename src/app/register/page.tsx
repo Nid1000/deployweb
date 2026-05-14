@@ -63,7 +63,7 @@ export default function RegisterPage() {
 
       <form onSubmit={onSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium mb-1">Nombre</label>
+          <label className="block text-sm font-medium mb-1">Apodo</label>
           <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} required className="w-full border rounded px-3 py-2" />
         </div>
         <div>
