@@ -44,6 +44,28 @@ jobs:
           cp -R public deploy-package/public
           date -u +"%Y-%m-%dT%H:%M:%SZ" > deploy-package/tmp/restart.txt
 
+      - name: Validate deploy configuration
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ vars.FTP_SERVER_DIR }}
+        run: |
+          missing=0
+          for key in FTP_SERVER FTP_USERNAME FTP_PASSWORD FTP_SERVER_DIR; do
+            if [ -z "${!key}" ]; then
+              echo "::error::$key no esta configurado en GitHub Actions"
+              missing=1
+            fi
+          done
+          exit $missing
+
+      - name: Check FTP host DNS
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        run: |
+          node -e "const dns=require('node:dns').promises; dns.lookup(process.env.FTP_SERVER).then(()=>console.log('FTP host resuelve correctamente')).catch((err)=>{console.error('::error::No se pudo resolver el host FTP. Revisa el secret FTP_SERVER.'); console.error(err.code || err.message); process.exit(1);})"
+
       - name: Deploy to FTP server
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
