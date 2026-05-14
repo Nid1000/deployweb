@@ -12,12 +12,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Create production environment file
@@ -45,10 +45,13 @@ jobs:
           date -u +"%Y-%m-%dT%H:%M:%SZ" > deploy-package/tmp/restart.txt
 
       - name: Deploy to FTP server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
           local-dir: ./deploy-package/
           server-dir: ${{ vars.FTP_SERVER_DIR }}
+          dangerous-clean-slate: false
