@@ -131,7 +131,7 @@ export default function ProfilePage() {
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold">Mi perfil</h1>
+        <h1 className="text-2xl font-semibold">Mi perfil de mierda</h1>
         {stats && <p className="text-sm text-gray-600 mt-1">Pedidos: {stats.total_pedidos} · Total gastado: S/ {Number(stats.total_gastado || 0).toFixed(2)}</p>}
       </div>
       {error && <div className="rounded-md bg-red-100 text-red-700 px-4 py-2">{error}</div>}
