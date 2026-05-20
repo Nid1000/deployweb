@@ -316,7 +316,7 @@ function ProductsPageContent() {
                 value={filtros.categoria}
                 onChange={(e) => handleFiltroChange("categoria", e.target.value)}
               >
-                <option value="">Todas las categorías</option>
+                <option value="">Todas las porquerias</option>
                 {categorias.map((c) => (
                   <option key={c.id} value={String(c.id)}>
                     {c.nombre}
