@@ -26,14 +26,10 @@ En tu repo ve a `Settings > Secrets and variables > Actions`.
 
 ### Secrets
 
-- `FTP_SERVER`: `ftp.saborcentral.com`
-- `FTP_USERNAME`: `deploypanaderia@saborcentral.com`
-- `FTP_PASSWORD`: tu clave FTP
+- `FTP_HOST`: `216.246.112.85`
+- `FTP_USER`: `deploypanaderia@saborcentral.com`
+- `FTP_PASS`: tu clave FTP
 - `NEXT_PUBLIC_API_BASE_URL`: `https://api.saborcentral.com`
-
-### Variable
-
-- `FTP_SERVER_DIR`: `/public_html/delicias.saborcentral.com/`
 
 ## 3. Workflow listo
 
@@ -53,6 +49,10 @@ Ese workflow hace esto:
    - `public`
    - `tmp/restart.txt`
 4. Lo sube por FTP al hosting.
+
+La carpeta remota ya esta configurada en el workflow:
+
+- `/public_html/delicias.saborcentral.com/`
 
 ## 4. Como desplegar
 
