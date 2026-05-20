@@ -74,5 +74,5 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./deploy-package/
-          server-dir: /public_html/delicias.saborcentral.com/
+          server-dir: /delicias.saborcentral.com/
           dangerous-clean-slate: false

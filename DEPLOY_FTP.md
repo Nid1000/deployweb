@@ -52,7 +52,7 @@ Ese workflow hace esto:
 
 La carpeta remota ya esta configurada en el workflow:
 
-- `/public_html/delicias.saborcentral.com/`
+- `/delicias.saborcentral.com/`
 
 ## 4. Como desplegar
 
