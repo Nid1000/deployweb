@@ -74,4 +74,5 @@ jobs:
           port: 21
           local-dir: ./deploy-package/
           server-dir: /delicias.saborcentral.com/
+          state-name: .ftp-deploy-sync-state-delicias-next.json
           dangerous-clean-slate: false
