@@ -35,16 +35,12 @@ jobs:
       - name: Prepare deploy package
         run: |
           rm -rf deploy-package
-          mkdir -p deploy-package/.next
+          mkdir -p deploy-package
           mkdir -p deploy-package/tmp
-          cp server.js deploy-package/server.js
+          cp -R .next/standalone/. deploy-package/
           cp .htaccess deploy-package/.htaccess
-          cp -R .next/standalone deploy-package/.next/standalone
           cp -R .next/static deploy-package/.next/static
           cp -R public deploy-package/public
-          mkdir -p deploy-package/.next/standalone/.next
-          cp -R .next/static deploy-package/.next/standalone/.next/static
-          cp -R public deploy-package/.next/standalone/public
           date -u +"%Y-%m-%dT%H:%M:%SZ" > deploy-package/tmp/restart.txt
 
       - name: Validate deploy configuration
